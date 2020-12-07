@@ -79,7 +79,7 @@ public class BitNum {
         BitNum bitNum = new BitNum();
         try {
 
-            Map<String, Object> xdCode = bitNum.getXDCode(599, 40004);
+            Map<String, Object> xdCode = bitNum.getXDCode(599, 40007);
             System.out.println( xdCode.get("length") );
             String[] codes  = (String[]) xdCode.get("codes");
             for( int i = 0; i < (int)xdCode.get("length"); i++){

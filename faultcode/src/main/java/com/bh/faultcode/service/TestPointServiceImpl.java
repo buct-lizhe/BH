@@ -141,6 +141,7 @@ public class TestPointServiceImpl implements TestPointService {
                     Integer type = 2;
                     String unitId = (String) pointsJsonArray.getJSONObject(i).get("unitId");
                     Long updateTime = (Long) pointsJsonArray.getJSONObject(i).get("updateTime");
+//                    jsonObj.put("value" , (Number)PointInfo.getJSONObject(i).get("value"));
 
                     //得到所需要的code值，也就是该测点的所有故障code
                     String[] codes = (String[]) map.get("codes");
@@ -155,6 +156,8 @@ public class TestPointServiceImpl implements TestPointService {
                         jsonObj.put("type", type);
                         jsonObj.put("unitId", unitId);
                         jsonObj.put("updateTime", updateTime);
+                        jsonObj.put("value", value);
+                        jsonObj.put("pointId",pointId);
                         //将测点故障处理后加入所需要的json对象数组中
                         alarmReasonJsonArray.add(jsonObj);
                     }
@@ -213,6 +216,8 @@ public class TestPointServiceImpl implements TestPointService {
                     jsonObj.put("type", type);
                     jsonObj.put("unitId", unitId);
                     jsonObj.put("updateTime", updateTime);
+                    jsonObj.put("value", value);
+                    jsonObj.put("pointId",pointId);
                     //将测点故障处理后加入所需要的json对象数组中
                     alarmReasonJsonArray.add(jsonObj);
                 }

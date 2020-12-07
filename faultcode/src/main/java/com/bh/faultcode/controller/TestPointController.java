@@ -80,6 +80,7 @@ public class TestPointController {
 
     private void sendInfo() {
         for (Object jsonObject : alarmPointJsonArray) {
+//            System.out.println( jsonObject );
             JSONObject jo = (JSONObject) jsonObject;
             Map<String, String> params = new HashMap<String, String>();
             params.put("code", jo.get("code").toString());
@@ -113,7 +114,12 @@ public class TestPointController {
                     } catch (UnsupportedEncodingException e) {
                         e.printStackTrace();
                     }
-                    System.out.println("接收的信息：" + result);
+                    System.out.println("接收的信息：" +result.substring( 8,11 ));
+                    if( result.substring( 8,11 ) == "200" ){
+                        logger.info("发送：{}",jsonObject );
+                        logger.info("接收：{}",result );
+                    }
+
                 }
                 //如果相同不做操作
             }else{
@@ -130,7 +136,11 @@ public class TestPointController {
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
-                System.out.println("接收的信息：" + result);
+                System.out.println("接收的信息：" +result.substring( 8,11 ));
+                if( result.substring( 8,11 ).equals( "200" ) ){
+                    logger.info("发送：{}",jsonObject );
+                    logger.info("接收：{}",result );
+                }
             }
         }
     }
